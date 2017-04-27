@@ -80,7 +80,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             GameLabel.text = " "
         
         }else{
-            GameLabel.text = String("\(gameResult / 10)")
+            GameLabel.text = String("記録　\(gameResult / 10)s")
         }
         
         ranking_data[5] = gameResult
@@ -109,7 +109,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let label2 = cell.viewWithTag(2) as! UILabel
         
         label1.text = ranking_array[indexPath.row]
-        label2.text = String("\(ranking_data[indexPath.row] / 10)")
+        label2.text = String("\(ranking_data[indexPath.row] / 10)s")
         
         return cell
     }
