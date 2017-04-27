@@ -29,7 +29,10 @@ class GameViewController: UIViewController {
     var old_bp_x:Int = 0
     var old_bp_y:Int = 0
     
-    
+    let ol1 = CAShapeLayer()
+    let ol2 = CAShapeLayer()
+    let ol3 = CAShapeLayer()
+    let ol4 = CAShapeLayer()
     
 
     @IBOutlet weak var startButton: UIButton!
@@ -57,6 +60,12 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.view.layer.addSublayer(ol1)
+        self.view.layer.addSublayer(ol2)
+        self.view.layer.addSublayer(ol3)
+        self.view.layer.addSublayer(ol4)
+        
         
     }
 
@@ -104,24 +113,21 @@ class GameViewController: UIViewController {
             old_bp_x = bp_x
             old_bp_y = bp_y
         
-        ap_x = Int(AP.x)
-        ap_y = Int(AP.y)
-        bp_x = Int(BP.x)
-        bp_y = Int(BP.y)
+        ap_x = Int(AP.x) - 25
+        ap_y = Int(AP.y) - 25
+        bp_x = Int(BP.x) - 25
+        bp_y = Int(BP.y) - 25
         
         
-        let ol1 = CAShapeLayer()
-        let ol2 = CAShapeLayer()
-        let ol3 = CAShapeLayer()
-        let ol4 = CAShapeLayer()
         
-        ol1.strokeColor = UIColor.clear.cgColor  // 輪郭
-        ol2.strokeColor = UIColor.clear.cgColor  // 輪郭
+        
+        ol1.strokeColor = UIColor.black.cgColor  // 輪郭
+        ol2.strokeColor = UIColor.black.cgColor  // 輪郭
         ol3.strokeColor = UIColor.blue.cgColor  // 輪郭
         ol4.strokeColor = UIColor.blue.cgColor  // 輪郭
         
-        ol1.fillColor = UIColor.clear.cgColor  // 塗り
-        ol2.fillColor = UIColor.clear.cgColor  // 塗り
+        ol1.fillColor = UIColor.black.cgColor  // 塗り
+        ol2.fillColor = UIColor.black.cgColor  // 塗り
         ol3.fillColor = UIColor.blue.cgColor  // 塗り
         ol4.fillColor = UIColor.blue.cgColor  // 塗り
         
@@ -132,20 +138,11 @@ class GameViewController: UIViewController {
         
         
         ol1.path = UIBezierPath(ovalIn: CGRect(x:old_ap_x, y:old_ap_y, width:50, height:50)).cgPath
-        self.view.layer.addSublayer(ol1)
-        
         ol2.path = UIBezierPath(ovalIn: CGRect(x:old_bp_x, y:old_bp_y, width:50, height:50)).cgPath
-        self.view.layer.addSublayer(ol2)
-        
         ol3.path = UIBezierPath(ovalIn: CGRect(x:ap_x, y:ap_y, width:50, height:50)).cgPath
-        self.view.layer.addSublayer(ol3)
-        
         ol4.path = UIBezierPath(ovalIn: CGRect(x:bp_x, y:bp_y, width:50, height:50)).cgPath
-        self.view.layer.addSublayer(ol4)
         
-        
-        
-       
+        self.view.layer.display()
         
         }
         
