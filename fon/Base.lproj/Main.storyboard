@@ -28,9 +28,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJt-1v-9sp">
-                                <rect key="frame" x="126" y="596" width="122" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJt-1v-9sp">
+                                <rect key="frame" x="126" y="585" width="122" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="スタート！"/>
                                 <connections>
@@ -38,8 +37,8 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="myCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GFd-R2-gRb">
-                                <rect key="frame" x="67" y="230" width="240" height="315"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="67" y="230" width="240" height="288"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPcell" id="yd2-uu-vBa">
@@ -89,6 +88,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xJt-1v-9sp" secondAttribute="bottom" constant="41" id="KV3-fg-CtE"/>
+                            <constraint firstItem="xJt-1v-9sp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="110" id="Y3k-Qu-gMp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xJt-1v-9sp" secondAttribute="trailing" constant="111" id="z4M-h8-ccK"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="GameLabel" destination="tIY-bN-dcY" id="UeU-nV-rT5"/>
