@@ -14,13 +14,29 @@ class GameViewController: UIViewController {
     var gameCount:Int = 8
     var onoffFlug:Bool = false
     
+    var rects: [CGRect]?
     
     var timer: Timer!
+    
+    var ap_x:Int = 0
+    var ap_y:Int = 0
+    var bp_x:Int = 0
+    var bp_y:Int = 0
+    
+    
+    var old_ap_x:Int = 0
+    var old_ap_y:Int = 0
+    var old_bp_x:Int = 0
+    var old_bp_y:Int = 0
+    
+    
+    
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var StopWatch: UILabel!
     @IBOutlet weak var numLabel: UILabel!
+    @IBOutlet weak var gameScreen: UIImageView!
     
     @IBAction func startButtonPush(_ sender: Any) {
         if onoffFlug == true {
@@ -41,6 +57,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,8 +91,71 @@ class GameViewController: UIViewController {
         // do something
     }
     
+    @IBAction func TouchEvent(_ sender: UIPinchGestureRecognizer) {
+   
+        if sender.numberOfTouches >= 2 {
+            
+        
+        let AP:CGPoint =  sender.location(ofTouch: 0, in: gameScreen)
+        let BP:CGPoint =  sender.location(ofTouch: 1, in: gameScreen)
     
-
+            old_ap_x = ap_x
+            old_ap_y = ap_y
+            old_bp_x = bp_x
+            old_bp_y = bp_y
+        
+        ap_x = Int(AP.x)
+        ap_y = Int(AP.y)
+        bp_x = Int(BP.x)
+        bp_y = Int(BP.y)
+        
+        
+        let ol1 = CAShapeLayer()
+        let ol2 = CAShapeLayer()
+        let ol3 = CAShapeLayer()
+        let ol4 = CAShapeLayer()
+        
+        ol1.strokeColor = UIColor.clear.cgColor  // 輪郭
+        ol2.strokeColor = UIColor.clear.cgColor  // 輪郭
+        ol3.strokeColor = UIColor.blue.cgColor  // 輪郭
+        ol4.strokeColor = UIColor.blue.cgColor  // 輪郭
+        
+        ol1.fillColor = UIColor.clear.cgColor  // 塗り
+        ol2.fillColor = UIColor.clear.cgColor  // 塗り
+        ol3.fillColor = UIColor.blue.cgColor  // 塗り
+        ol4.fillColor = UIColor.blue.cgColor  // 塗り
+        
+        ol1.lineWidth = 2.0
+        ol2.lineWidth = 2.0
+        ol3.lineWidth = 2.0
+        ol4.lineWidth = 2.0
+        
+        
+        ol1.path = UIBezierPath(ovalIn: CGRect(x:old_ap_x, y:old_ap_y, width:50, height:50)).cgPath
+        self.view.layer.addSublayer(ol1)
+        
+        ol2.path = UIBezierPath(ovalIn: CGRect(x:old_bp_x, y:old_bp_y, width:50, height:50)).cgPath
+        self.view.layer.addSublayer(ol2)
+        
+        ol3.path = UIBezierPath(ovalIn: CGRect(x:ap_x, y:ap_y, width:50, height:50)).cgPath
+        self.view.layer.addSublayer(ol3)
+        
+        ol4.path = UIBezierPath(ovalIn: CGRect(x:bp_x, y:bp_y, width:50, height:50)).cgPath
+        self.view.layer.addSublayer(ol4)
+        
+        
+        
+       
+        
+        }
+        
+        
+        
+       // numLabel.text = NSString(format: "%.2f", AP.x) as String
+       // numLabel.text = NSString(format: "%.2f", BP.x) as String
+    
+        
+    }
     /*
     // MARK: - Navigation
 

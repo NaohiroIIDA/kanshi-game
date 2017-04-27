@@ -22,12 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="鉗子ゲーム" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0WJ-bT-Ycn">
-                                <rect key="frame" x="97" y="57" width="180" height="73"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="7eJ-zP-VED"/>
-                                    <constraint firstAttribute="height" constant="118" id="wsV-cC-b5D"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="鉗子ゲーム" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0WJ-bT-Ycn">
+                                <rect key="frame" x="108" y="57" width="157" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -92,11 +89,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="0WJ-bT-Ycn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Jvt-bh-wX5"/>
-                            <constraint firstItem="0WJ-bT-Ycn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lV6-kV-vJf"/>
-                            <constraint firstItem="0WJ-bT-Ycn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="wPe-RZ-W42"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="GameLabel" destination="tIY-bN-dcY" id="UeU-nV-rT5"/>
@@ -145,14 +137,14 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タイム(秒)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-x4-Gyk">
                                 <rect key="frame" x="24" y="603" width="104" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQC-O7-C8P">
                                 <rect key="frame" x="120" y="603" width="60" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="stopwatch"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,12 +152,20 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="あと8個" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqc-ed-veJ">
                                 <rect key="frame" x="260" y="603" width="99" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="numLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zvu-OZ-b77">
+                                <rect key="frame" x="8" y="58" width="359" height="529"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6bS-qr-bVy" appends="YES" id="mRO-Wg-LSW"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -184,6 +184,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z89-yL-Obj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Bjd-XO-Vd6" userLabel="Exit" sceneMemberID="exit"/>
+                <pinchGestureRecognizer id="6bS-qr-bVy">
+                    <connections>
+                        <action selector="TouchEvent:" destination="yND-gY-cwd" id="mG7-3k-hlm"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="122.78860569715144"/>
         </scene>

@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
+    var dataList:[String] = []
+    var userPath:String!
+    let fileManager = FileManager()
+    
+    
     var ranking_title:[String] = ["ランキング"]
     var ranking_array:[String] = ["１位","２位","３位","４位","５位"]
     var ranking_data:[Double] = [999,999,999,999,999,999]
@@ -36,11 +41,15 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         rankingLinst.reloadData()
         
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,7 +59,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         super.viewWillAppear(animated)
         
         if gameResult == 999 {
-            GameLabel.text = "0"
+            GameLabel.text = " "
         
         }else{
             GameLabel.text = String("\(gameResult / 10)")
@@ -61,14 +70,16 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         rankingLinst.reloadData()
         
+        // writeRanking()
         
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-    //return ranking_array.count
-    return 5 }
+        //return ranking_array.count
+        return 5
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -89,6 +100,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         return ranking_title[section]
     }
     
-    
-}
 
+
+}
