@@ -193,6 +193,12 @@ class GameViewController: UIViewController{
                 
                 if (gameCount == 0 ){
                     playSound2()
+                    
+                    
+                    
+                    var appDelegate:AppDelegate = UIApplication.sharedApplication.delegate as AppDelegate
+                    appDelegate.gameResult = playTime //appDelegateの変数を操作
+                    
                 }else{
                     playSound()
                 }
@@ -282,7 +288,8 @@ class GameViewController: UIViewController{
         AudioServicesCreateSystemSoundID(url as CFURL, &soundID)
         AudioServicesPlaySystemSound(soundID)
     }
-
+    
+    
    
     
     

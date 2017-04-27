@@ -47,6 +47,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        readTextFile()
+        
     }
     
     
@@ -70,7 +72,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         rankingLinst.reloadData()
         
-        // writeRanking()
+        saveFile()
         
     }
     
@@ -99,6 +101,57 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ranking_title[section]
     }
+    
+    func saveFile() {
+        
+        let textFileName = "ranking.txt"
+       // let initialText = "999,999,999,999,999,999"
+        
+        let initialText = String(ranking_data[0]) + "," + String(ranking_data[1]) + "," + String(ranking_data[2]) + "," + String(ranking_data[3]) + "," + String(ranking_data[4]) + "," + String(ranking_data[5])
+        
+        if let documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
+            
+            let targetTextFilePath = documentDirectoryFileURL.appendingPathComponent(textFileName)
+            
+            print("書き込むファイルのパス: \(targetTextFilePath)")
+            print("書き込むデータ: \(initialText)")
+            
+            do {
+                try initialText.write(to: targetTextFilePath, atomically: true, encoding: String.Encoding.utf8)
+            } catch let error as NSError {
+                print("failed to write: \(error)")
+            }
+        }
+    }
+    
+    
+    
+    func readTextFile() {
+        
+        let textFileName = "ranking.txt"
+        let documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let targetTextFilePath = documentDirectoryFileURL?.appendingPathComponent(textFileName)
+        
+        do {
+            let saveData = try String(contentsOf: targetTextFilePath!, encoding: String.Encoding.utf8)
+             print("読み込むデータ: \(saveData)")
+            
+            //カンマでデータを分割して配列に格納する。
+            let loadDataCell = saveData.components(separatedBy: ",")
+            
+            ranking_data[0] = atof(loadDataCell[0])
+            ranking_data[1] = atof(loadDataCell[1])
+            ranking_data[2] = atof(loadDataCell[2])
+            ranking_data[3] = atof(loadDataCell[3])
+            ranking_data[4] = atof(loadDataCell[4])
+            ranking_data[5] = atof(loadDataCell[5])
+                        
+            
+        } catch let error as NSError {
+            print("failed to read: \(error)")
+        }
+    }
+
     
 
 
