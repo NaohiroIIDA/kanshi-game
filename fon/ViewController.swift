@@ -8,7 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+    
+    var ranking_title:[String] = ["ランキング"]
+    var ranking_array:[String] = ["１位","２位","３位","４位","５位"]
+    var ranking_data:[Double] = [0,1.1,2.02,3.30,4.4]
+    
+    
+    var gameResult:Double = 0
+    
+    
+    @IBOutlet weak var GameLabel: UILabel!
+    
+    @IBAction func returnTop(segue:UIStoryboardSegue){
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +33,34 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
-
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ranking_array.count}
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       // let cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+       // cell.textLabel!.text = ranking_array[indexPath.row] + ranking_data[indexPath.row]
+        
+        tableView.rowHeight = 50
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myPcell", for: indexPath as IndexPath)
+        
+        let label1 = cell.viewWithTag(1) as! UILabel
+        let label2 = cell.viewWithTag(2) as! UILabel
+        
+        label1.text = ranking_array[indexPath.row]
+        label2.text = String("\(ranking_data[indexPath.row])")
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ranking_title[section]
+    }
+    
+    
 }
 

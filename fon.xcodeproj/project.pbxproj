@@ -12,6 +12,7 @@
 		BF927CCA1EB1014A00D5ED18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF927CC81EB1014A00D5ED18 /* Main.storyboard */; };
 		BF927CCC1EB1014A00D5ED18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF927CCB1EB1014A00D5ED18 /* Assets.xcassets */; };
 		BF927CCF1EB1014A00D5ED18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF927CCD1EB1014A00D5ED18 /* LaunchScreen.storyboard */; };
+		BF927CD71EB1136800D5ED18 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF927CD61EB1136800D5ED18 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BF927CCB1EB1014A00D5ED18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF927CCE1EB1014A00D5ED18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF927CD01EB1014A00D5ED18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF927CD61EB1136800D5ED18 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				BF927CC41EB1014A00D5ED18 /* AppDelegate.swift */,
 				BF927CC61EB1014A00D5ED18 /* ViewController.swift */,
 				BF927CC81EB1014A00D5ED18 /* Main.storyboard */,
+				BF927CD61EB1136800D5ED18 /* GameViewController.swift */,
 				BF927CCB1EB1014A00D5ED18 /* Assets.xcassets */,
 				BF927CCD1EB1014A00D5ED18 /* LaunchScreen.storyboard */,
 				BF927CD01EB1014A00D5ED18 /* Info.plist */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF927CC71EB1014A00D5ED18 /* ViewController.swift in Sources */,
+				BF927CD71EB1136800D5ED18 /* GameViewController.swift in Sources */,
 				BF927CC51EB1014A00D5ED18 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +283,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nekotorobot.fon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f070dd3a-0996-48aa-af7f-b3662f6761fe";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
