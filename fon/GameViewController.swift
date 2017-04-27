@@ -67,7 +67,17 @@ class GameViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let topSc = segue.destination as! ViewController
-        topSc.gameResult = playTime
+        
+        if ((onoffFlug == true) && (gameCount == 0)){
+            
+             topSc.gameResult = playTime
+        }else{
+            topSc.gameResult = 999
+
+        }
+        
+        
+       
     }
 
     override func viewDidLoad() {
@@ -174,6 +184,12 @@ class GameViewController: UIViewController {
             
             if checkGoal(){
                 gameCount -= 1
+                
+                if (gameCount == 0 ){
+                    
+                }
+                
+                
                 setGoal()
             }
             
@@ -193,8 +209,8 @@ class GameViewController: UIViewController {
     
     func drowRect(){
         
-        rect1.path = UIBezierPath(rect:CGRect(x:ag_x - 25,y:ag_y - 25,width:50,height:50)).cgPath
-        rect2.path = UIBezierPath(rect:CGRect(x:bg_x - 25,y:bg_y - 25,width:50,height:50)).cgPath
+        rect1.path = UIBezierPath(rect:CGRect(x:ag_x,y:ag_y,width:50,height:50)).cgPath
+        rect2.path = UIBezierPath(rect:CGRect(x:bg_x,y:bg_y,width:50,height:50)).cgPath
         
     }
     
@@ -226,17 +242,20 @@ class GameViewController: UIViewController {
     
     func checkGoal() ->Bool {
         
-        let diff_ax = sqrt(Double(abs(Int32)(ap_x - ag_x)^2 + abs(Int32)(ap_y - ag_y)^2))
-        let diff_bx = sqrt(Double(abs(Int32)(ap_x - bg_x)^2 + abs(Int32)(ap_y - bg_y)^2))
+        let diff_ax = abs(ap_x - ag_x)
+        let diff_bx = abs(bp_x - bg_x)
+        let diff_cx = abs(ap_x - bg_x)
+        let diff_dx = abs(bp_x - ag_x)
         
-        let diff_cx = sqrt(Double(abs(Int32)(bp_x - ag_x)^2 + abs(Int32)(bp_y - ag_y)^2))
-        let diff_dx = sqrt(Double(abs(Int32)(bp_x - bg_x)^2 + abs(Int32)(bp_y - bg_y)^2))
+        let diff_ay = abs(ap_y - ag_y)
+        let diff_by = abs(bp_y - bg_y)
+        let diff_cy = abs(ap_y - bg_y)
+        let diff_dy = abs(bp_y - ag_y)
         
-        print (diff_ax)
         
         
-        if (diff_ax > shld && diff_dx > shld) ||  (diff_bx > shld && diff_cx > shld){
-        
+        if (((diff_ax < 10) && (diff_bx < 10) && (diff_ay < 10) && (diff_by < 10))||((diff_cx < 10) && (diff_dx < 10) && (diff_cy < 10) && (diff_dy < 10))){
+            
             return true
         }else{
             return false
