@@ -32,7 +32,10 @@ class GameViewController: UIViewController {
         }
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let topSc = segue.destination as! ViewController
+        topSc.gameResult = playTime
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

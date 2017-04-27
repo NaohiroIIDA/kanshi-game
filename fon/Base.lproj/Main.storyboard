@@ -120,8 +120,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="ストップ"/>
                                 <connections>
-                                    <action selector="returnTopWithSegue:" destination="Z89-yL-Obj" eventType="touchUpInside" id="TYa-SR-CTS"/>
-                                    <segue destination="Bjd-XO-Vd6" kind="unwind" unwindAction="returnTopWithSegue:" id="aNK-FB-lJE"/>
+                                    <segue destination="Bjd-XO-Vd6" kind="unwind" unwindAction="returnTopWithSegue:" id="i9q-r5-PZJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnE-Bf-TbJ">
