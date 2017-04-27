@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF0386901EB20FA50081D072 /* finish.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF03868E1EB20FA50081D072 /* finish.wav */; };
+		BF0386911EB20FA50081D072 /* goal.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF03868F1EB20FA50081D072 /* goal.wav */; };
 		BF927CC51EB1014A00D5ED18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF927CC41EB1014A00D5ED18 /* AppDelegate.swift */; };
 		BF927CC71EB1014A00D5ED18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF927CC61EB1014A00D5ED18 /* ViewController.swift */; };
 		BF927CCA1EB1014A00D5ED18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF927CC81EB1014A00D5ED18 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF03868E1EB20FA50081D072 /* finish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = finish.wav; path = ../finish.wav; sourceTree = "<group>"; };
+		BF03868F1EB20FA50081D072 /* goal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = goal.wav; path = ../goal.wav; sourceTree = "<group>"; };
 		BF927CC11EB1014A00D5ED18 /* fon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF927CC41EB1014A00D5ED18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF927CC61EB1014A00D5ED18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,9 +41,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF03868D1EB20F7C0081D072 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		BF927CB81EB1014A00D5ED18 = {
 			isa = PBXGroup;
 			children = (
+				BF03868D1EB20F7C0081D072 /* Resources */,
 				BF927CC31EB1014A00D5ED18 /* fon */,
 				BF927CC21EB1014A00D5ED18 /* Products */,
 			);
@@ -63,6 +75,8 @@
 				BF927CCB1EB1014A00D5ED18 /* Assets.xcassets */,
 				BF927CCD1EB1014A00D5ED18 /* LaunchScreen.storyboard */,
 				BF927CD01EB1014A00D5ED18 /* Info.plist */,
+				BF03868E1EB20FA50081D072 /* finish.wav */,
+				BF03868F1EB20FA50081D072 /* goal.wav */,
 			);
 			path = fon;
 			sourceTree = "<group>";
@@ -127,9 +141,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF0386911EB20FA50081D072 /* goal.wav in Resources */,
 				BF927CCF1EB1014A00D5ED18 /* LaunchScreen.storyboard in Resources */,
 				BF927CCC1EB1014A00D5ED18 /* Assets.xcassets in Resources */,
 				BF927CCA1EB1014A00D5ED18 /* Main.storyboard in Resources */,
+				BF0386901EB20FA50081D072 /* finish.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +324,7 @@
 				BF927CD51EB1014A00D5ED18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

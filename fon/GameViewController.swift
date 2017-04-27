@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AudioToolbox
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController{
+    
+
     
     var playTime:Double = 0
     var gameCount:Int = 8
@@ -61,6 +64,8 @@ class GameViewController: UIViewController {
            
             setGoal()
              drowRect()
+            
+           
             
         }
     }
@@ -119,8 +124,6 @@ class GameViewController: UIViewController {
         
         rect1.lineWidth = 5.0
         rect2.lineWidth = 5.0
-
-        
         
         
     }
@@ -137,6 +140,8 @@ class GameViewController: UIViewController {
         
         playTime = 0
         gameCount = 8
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -185,11 +190,12 @@ class GameViewController: UIViewController {
             if checkGoal(){
                 gameCount -= 1
                 
+                
                 if (gameCount == 0 ){
-                    
+                    playSound2()
+                }else{
+                    playSound()
                 }
-                
-                
                 setGoal()
             }
             
@@ -260,7 +266,25 @@ class GameViewController: UIViewController {
         }else{
             return false
         }
+        
     }
+    
+    func playSound() {
+        let url = Bundle.main.url(forResource: "goal", withExtension: "wav")!
+        var soundID: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(url as CFURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    func playSound2() {
+        let url = Bundle.main.url(forResource: "finish", withExtension: "wav")!
+        var soundID: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(url as CFURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+
+   
+    
     
     /*
     // MARK: - Navigation
