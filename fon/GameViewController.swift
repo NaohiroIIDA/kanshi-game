@@ -66,10 +66,10 @@ class GameViewController: UIViewController {
         
         if onoffFlug == true {
 
-            playTime += 0.1
+            playTime += 1
         }
         
-        StopWatch.text = String("\(playTime)")
+        StopWatch.text = String("\(playTime / 10)")
         numLabel.text = "あと" + String(gameCount)+"個"
         // do something
     }

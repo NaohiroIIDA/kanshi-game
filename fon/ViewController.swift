@@ -12,7 +12,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     var ranking_title:[String] = ["ランキング"]
     var ranking_array:[String] = ["１位","２位","３位","４位","５位"]
-    var ranking_data:[Double] = [0,1.1,2.02,3.30,4.4]
+    var ranking_data:[Double] = [999,999,999,999,999]
     
     
     var gameResult:Double = 0
@@ -37,7 +37,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        GameLabel.text = String("\(gameResult)")
+        GameLabel.text = String("\(gameResult / 10)")
     }
     
     
@@ -56,7 +56,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let label2 = cell.viewWithTag(2) as! UILabel
         
         label1.text = ranking_array[indexPath.row]
-        label2.text = String("\(ranking_data[indexPath.row])")
+        label2.text = String("\(ranking_data[indexPath.row] / 10)")
         
         return cell
     }
