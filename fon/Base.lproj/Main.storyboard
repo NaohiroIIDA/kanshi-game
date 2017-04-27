@@ -93,6 +93,7 @@
                     </view>
                     <connections>
                         <outlet property="GameLabel" destination="tIY-bN-dcY" id="UeU-nV-rT5"/>
+                        <outlet property="rankingLinst" destination="GFd-R2-gRb" id="5RH-Nx-20J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

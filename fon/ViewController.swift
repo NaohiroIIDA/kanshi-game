@@ -12,14 +12,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     var ranking_title:[String] = ["ランキング"]
     var ranking_array:[String] = ["１位","２位","３位","４位","５位"]
-    var ranking_data:[Double] = [999,999,999,999,999]
+    var ranking_data:[Double] = [999,999,999,999,999,999]
     
     
-    var gameResult:Double = 0
+    var gameResult:Double = 999
     
     
     @IBOutlet weak var GameLabel: UILabel!
-    
+    @IBOutlet weak var rankingLinst: UITableView!
     @IBAction func returnTop(segue:UIStoryboardSegue){
         
     }
@@ -38,15 +38,22 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         super.viewWillAppear(animated)
         
         GameLabel.text = String("\(gameResult / 10)")
+        
+        ranking_data[5] = gameResult
+        ranking_data.sort{ $0 < $1 }
+        
+        rankingLinst.reloadData()
+        
+        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ranking_array.count}
+        
+    //return ranking_array.count
+    return 5 }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // let cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
-       // cell.textLabel!.text = ranking_array[indexPath.row] + ranking_data[indexPath.row]
         
         tableView.rowHeight = 50
         
