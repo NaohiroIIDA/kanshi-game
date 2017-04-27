@@ -120,7 +120,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="ストップ"/>
                                 <connections>
-                                    <segue destination="Bjd-XO-Vd6" kind="unwind" unwindAction="returnTopWithSegue:" id="i9q-r5-PZJ"/>
+                                    <action selector="stopButtonPush:" destination="yND-gY-cwd" eventType="touchUpInside" id="c7q-nb-Uu6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnE-Bf-TbJ">
@@ -179,11 +179,9 @@
                         <outlet property="StopWatch" destination="BQC-O7-C8P" id="RrN-Wy-knu"/>
                         <outlet property="numLabel" destination="tqc-ed-veJ" id="Oyk-KA-zmE"/>
                         <outlet property="startButton" destination="gnE-Bf-TbJ" id="MWM-4v-2q0"/>
-                        <outlet property="stopButton" destination="T2o-YE-ULq" id="mnk-Hj-q7a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z89-yL-Obj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Bjd-XO-Vd6" userLabel="Exit" sceneMemberID="exit"/>
                 <pinchGestureRecognizer id="6bS-qr-bVy">
                     <connections>
                         <action selector="TouchEvent:" destination="yND-gY-cwd" id="mG7-3k-hlm"/>

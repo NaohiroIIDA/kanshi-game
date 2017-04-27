@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
+    var delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var dataList:[String] = []
     var userPath:String!
     let fileManager = FileManager()
@@ -49,6 +51,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         readTextFile()
         
+        print(self.delegate.result as Any)
+   
+        
     }
     
     
@@ -59,6 +64,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        var resultData = self.delegate.result
+        
+        if( resultData == nil){
+            resultData = 999
+        }
+        
+        
+        print("表示間データ: \(resultData)")
+        
+        gameResult = resultData!
         
         if gameResult == 999 {
             GameLabel.text = " "

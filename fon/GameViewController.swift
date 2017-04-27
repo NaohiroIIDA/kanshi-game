@@ -10,7 +10,8 @@ import UIKit
 import AudioToolbox
 
 class GameViewController: UIViewController{
-    
+
+    var delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     
     var playTime:Double = 0
@@ -70,21 +71,15 @@ class GameViewController: UIViewController{
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let topSc = segue.destination as! ViewController
+    
+    @IBAction func stopButtonPush(_ sender: Any) {
         
-        if ((onoffFlug == true) && (gameCount == 0)){
-            
-             topSc.gameResult = playTime
-        }else{
-            topSc.gameResult = 999
-
-        }
-        
-        
-       
+        self.delegate.result = 999
+        // NavigationControllerを使ったページの遷移
+        self.dismiss(animated: true, completion: nil)
     }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -194,10 +189,10 @@ class GameViewController: UIViewController{
                 if (gameCount == 0 ){
                     playSound2()
                     
-                    
-                    
-                    var appDelegate:AppDelegate = UIApplication.sharedApplication.delegate as AppDelegate
-                    appDelegate.gameResult = playTime //appDelegateの変数を操作
+                    // AppDelegateのmessageに押されたボタンのtagを代入
+                    self.delegate.result = playTime
+                    // NavigationControllerを使ったページの遷移
+                    self.dismiss(animated: true, completion: nil)
                     
                 }else{
                     playSound()
