@@ -29,10 +29,20 @@ class GameViewController: UIViewController {
     var old_bp_x:Int = 0
     var old_bp_y:Int = 0
     
+    var ag_x:Int = 0
+    var ag_y:Int = 0
+    var bg_x:Int = 0
+    var bg_y:Int = 0
+    
+    let shld:Double = 25
+    
     let ol1 = CAShapeLayer()
     let ol2 = CAShapeLayer()
     let ol3 = CAShapeLayer()
     let ol4 = CAShapeLayer()
+    
+    let rect1 = CAShapeLayer()
+    let rect2 = CAShapeLayer()
     
 
     @IBOutlet weak var startButton: UIButton!
@@ -48,6 +58,10 @@ class GameViewController: UIViewController {
             onoffFlug = true
             playTime = 0
             gameCount = 8
+           
+            setGoal()
+             drowRect()
+            
         }
     }
 
@@ -65,6 +79,38 @@ class GameViewController: UIViewController {
         self.view.layer.addSublayer(ol2)
         self.view.layer.addSublayer(ol3)
         self.view.layer.addSublayer(ol4)
+        
+        self.view.layer.addSublayer(rect1)
+        self.view.layer.addSublayer(rect2)
+        
+        
+        ol1.strokeColor = UIColor.black.cgColor  // 輪郭
+        ol2.strokeColor = UIColor.black.cgColor  // 輪郭
+        ol3.strokeColor = UIColor.blue.cgColor  // 輪郭
+        ol4.strokeColor = UIColor.blue.cgColor  // 輪郭
+        rect1.strokeColor = UIColor.red.cgColor
+        rect2.strokeColor = UIColor.red.cgColor
+        
+        
+        ol1.fillColor = UIColor.black.cgColor  // 塗り
+        ol2.fillColor = UIColor.black.cgColor  // 塗り
+        ol3.fillColor = UIColor.blue.cgColor  // 塗り
+        ol4.fillColor = UIColor.blue.cgColor  // 塗り
+        
+        rect1.fillColor = UIColor.clear.cgColor
+        rect2.fillColor = UIColor.clear.cgColor
+
+        
+        
+        ol1.lineWidth = 2.0
+        ol2.lineWidth = 2.0
+        ol3.lineWidth = 2.0
+        ol4.lineWidth = 2.0
+        
+        rect1.lineWidth = 5.0
+        rect2.lineWidth = 5.0
+
+        
         
         
     }
@@ -95,9 +141,14 @@ class GameViewController: UIViewController {
             playTime += 1
         }
         
+       
+
+        
         StopWatch.text = String("\(playTime / 10)")
         numLabel.text = "あと" + String(gameCount)+"個"
         // do something
+        
+        
     }
     
     @IBAction func TouchEvent(_ sender: UIPinchGestureRecognizer) {
@@ -118,41 +169,80 @@ class GameViewController: UIViewController {
         bp_x = Int(BP.x) - 25
         bp_y = Int(BP.y) - 25
         
+            drowPoint()
+            drowRect()
+            
+            if checkGoal(){
+                gameCount -= 1
+                setGoal()
+            }
+            
         
-        
-        
-        ol1.strokeColor = UIColor.black.cgColor  // 輪郭
-        ol2.strokeColor = UIColor.black.cgColor  // 輪郭
-        ol3.strokeColor = UIColor.blue.cgColor  // 輪郭
-        ol4.strokeColor = UIColor.blue.cgColor  // 輪郭
-        
-        ol1.fillColor = UIColor.black.cgColor  // 塗り
-        ol2.fillColor = UIColor.black.cgColor  // 塗り
-        ol3.fillColor = UIColor.blue.cgColor  // 塗り
-        ol4.fillColor = UIColor.blue.cgColor  // 塗り
-        
-        ol1.lineWidth = 2.0
-        ol2.lineWidth = 2.0
-        ol3.lineWidth = 2.0
-        ol4.lineWidth = 2.0
-        
+        }
+    }
+    
+    func drowPoint(){
         
         ol1.path = UIBezierPath(ovalIn: CGRect(x:old_ap_x, y:old_ap_y, width:50, height:50)).cgPath
         ol2.path = UIBezierPath(ovalIn: CGRect(x:old_bp_x, y:old_bp_y, width:50, height:50)).cgPath
         ol3.path = UIBezierPath(ovalIn: CGRect(x:ap_x, y:ap_y, width:50, height:50)).cgPath
         ol4.path = UIBezierPath(ovalIn: CGRect(x:bp_x, y:bp_y, width:50, height:50)).cgPath
-        
-        self.view.layer.display()
-        
-        }
-        
-        
-        
-       // numLabel.text = NSString(format: "%.2f", AP.x) as String
-       // numLabel.text = NSString(format: "%.2f", BP.x) as String
+
+        //  self.view.layer.display()
+    }
     
+    func drowRect(){
+        
+        rect1.path = UIBezierPath(rect:CGRect(x:ag_x - 25,y:ag_y - 25,width:50,height:50)).cgPath
+        rect2.path = UIBezierPath(rect:CGRect(x:bg_x - 25,y:bg_y - 25,width:50,height:50)).cgPath
         
     }
+    
+    func setGoal(){
+        let gx   = Int(arc4random(lower: 50, upper: 300))
+        let gy   = Int(arc4random(lower: 200, upper: 400))
+        
+        let gq   = Double(arc4random(lower: 0, upper: 360))
+        
+        let sn = Double(gq) * 3.1415/180
+        
+        ag_x = gx + Int(40 * cos(sn))
+        bg_x = gx - Int(40 * cos(sn))
+        
+        ag_y = gy + Int(40 * sin(sn))
+        bg_y = gy - Int(40 * sin(sn))
+        
+    }
+    
+    
+    func arc4random(lower: UInt32, upper: UInt32) -> UInt32 {
+        guard upper >= lower else {
+            return 0
+        }
+        
+        return arc4random_uniform(upper - lower) + lower
+    }
+    
+    
+    func checkGoal() ->Bool {
+        
+        let diff_ax = sqrt(Double(abs(Int32)(ap_x - ag_x)^2 + abs(Int32)(ap_y - ag_y)^2))
+        let diff_bx = sqrt(Double(abs(Int32)(ap_x - bg_x)^2 + abs(Int32)(ap_y - bg_y)^2))
+        
+        let diff_cx = sqrt(Double(abs(Int32)(bp_x - ag_x)^2 + abs(Int32)(bp_y - ag_y)^2))
+        let diff_dx = sqrt(Double(abs(Int32)(bp_x - bg_x)^2 + abs(Int32)(bp_y - bg_y)^2))
+        
+        print (diff_ax)
+        
+        
+        if (diff_ax > shld && diff_dx > shld) ||  (diff_bx > shld && diff_cx > shld){
+        
+            return true
+        }else{
+            return false
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
