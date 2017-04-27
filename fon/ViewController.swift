@@ -24,6 +24,18 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
     }
 
+    @IBAction func resetRanking(_ sender: Any) {
+        
+        ranking_data[0] = 999
+        ranking_data[1] = 999
+        ranking_data[2] = 999
+        ranking_data[3] = 999
+        ranking_data[4] = 999
+        ranking_data[5] = 999
+        ranking_data.sort{ $0 < $1 }
+        rankingLinst.reloadData()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,7 +49,12 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        GameLabel.text = String("\(gameResult / 10)")
+        if gameResult == 999 {
+            GameLabel.text = "0"
+        
+        }else{
+            GameLabel.text = String("\(gameResult / 10)")
+        }
         
         ranking_data[5] = gameResult
         ranking_data.sort{ $0 < $1 }
