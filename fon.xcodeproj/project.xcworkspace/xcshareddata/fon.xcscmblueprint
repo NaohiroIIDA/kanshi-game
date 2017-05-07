@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "99F5E1F269DF2346C914254FECDA3372798B407D+++9B5FCBB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "99F5E1F269DF2346C914254FECDA3372798B407D+++9B5FCBB" : 9223372036854775807,
+    "99F5E1F269DF2346C914254FECDA3372798B407D+++04BE02D" : 9223372036854775807,
+    "99F5E1F269DF2346C914254FECDA3372798B407D+++5B66D7F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "382F3FDA-6C61-4031-91EF-0742A16ACECB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "99F5E1F269DF2346C914254FECDA3372798B407D+++9B5FCBB" : "fon3\/",
+    "99F5E1F269DF2346C914254FECDA3372798B407D+++04BE02D" : "fon\/",
+    "99F5E1F269DF2346C914254FECDA3372798B407D+++5B66D7F" : "fon\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "fon",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "fon.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:NaohiroIIDA\/kanshi-game.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "99F5E1F269DF2346C914254FECDA3372798B407D+++04BE02D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:NaohiroIIDA\/kanshi-game.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "99F5E1F269DF2346C914254FECDA3372798B407D+++5B66D7F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:NaohiroIIDA\/kanshi-game.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "99F5E1F269DF2346C914254FECDA3372798B407D+++9B5FCBB"
+    }
+  ]
+}

@@ -72,7 +72,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
         
         
-        print("表示間データ: \(resultData)")
+ //       print("表示間データ: \(resultData)")
         
         gameResult = resultData!
         

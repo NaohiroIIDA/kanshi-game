@@ -28,8 +28,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcK-sI-otT">
+                                <rect key="frame" x="99" y="67" width="176" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="resetRanking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="THu-Sz-NfS"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="myCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GFd-R2-gRb">
-                                <rect key="frame" x="67" y="230" width="240" height="288"/>
+                                <rect key="frame" x="66" y="202" width="240" height="288"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -64,22 +71,15 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="gameLabel" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIY-bN-dcY">
-                                <rect key="frame" x="37" y="156" width="300" height="44"/>
+                                <rect key="frame" x="36" y="128" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="gameLabel" label="GameLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcK-sI-otT">
-                                <rect key="frame" x="99" y="67" width="176" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="resetRanking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="THu-Sz-NfS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJt-1v-9sp">
-                                <rect key="frame" x="126" y="583" width="122" height="41"/>
+                                <rect key="frame" x="124" y="498" width="122" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="スタート！"/>
@@ -154,9 +154,6 @@
                                 <rect key="frame" x="8" y="58" width="359" height="529"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="6bS-qr-bVy" appends="YES" id="mRO-Wg-LSW"/>
-                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="あと8個" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqc-ed-veJ">
                                 <rect key="frame" x="260" y="613" width="99" height="34"/>
@@ -176,17 +173,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="GameView" destination="Zvu-OZ-b77" id="4Qr-9M-7V9"/>
                         <outlet property="StopWatch" destination="BQC-O7-C8P" id="RrN-Wy-knu"/>
                         <outlet property="numLabel" destination="tqc-ed-veJ" id="Oyk-KA-zmE"/>
                         <outlet property="startButton" destination="gnE-Bf-TbJ" id="MWM-4v-2q0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z89-yL-Obj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="6bS-qr-bVy">
-                    <connections>
-                        <action selector="TouchEvent:" destination="yND-gY-cwd" id="mG7-3k-hlm"/>
-                    </connections>
-                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="122.78860569715144"/>
         </scene>

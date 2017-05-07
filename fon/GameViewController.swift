@@ -48,12 +48,15 @@ class GameViewController: UIViewController{
     let rect1 = CAShapeLayer()
     let rect2 = CAShapeLayer()
     
+    var no = 0
+    var touchPos :[CGPoint] = []
+    
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var StopWatch: UILabel!
     @IBOutlet weak var numLabel: UILabel!
-    @IBOutlet weak var gameScreen: UIImageView!
+    @IBOutlet weak var GameView: UIImageView!
     
     @IBAction func startButtonPush(_ sender: Any) {
         if onoffFlug == true {
@@ -120,6 +123,9 @@ class GameViewController: UIViewController{
         rect1.lineWidth = 5.0
         rect2.lineWidth = 5.0
         
+       GameView.isMultipleTouchEnabled = true
+       // gameScreen.isUserInteractionEnabled = true
+        
         
     }
 
@@ -155,11 +161,75 @@ class GameViewController: UIViewController{
 
         
         StopWatch.text = String("\(playTime / 10)")
-        numLabel.text = "あと" + String(gameCount)+"個"
+       numLabel.text = "あと" + String(gameCount)+"個"
         // do something
         
         
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
+        old_ap_x = ap_x
+        old_ap_y = ap_y
+        old_bp_x = bp_x
+        old_bp_y = bp_y
+
+        
+        for t in touches {
+            let touch = t as UITouch
+            let location = touch.location(in: self.view)
+
+            touchPos.append(location)
+            
+            print(touchPos.count,location)
+            
+        }
+        
+        
+        if (touchPos.count >= 2) {
+            
+            ap_x = Int(touchPos[0].x) - 25
+            ap_y = Int(touchPos[0].y) - 25
+        
+            bp_x = Int(touchPos[1].x) - 25
+            bp_y = Int(touchPos[1].y) - 25
+            
+            touchPos.removeAll()
+        
+        
+            drowPoint()
+            drowRect()
+            
+            if checkGoal(){
+                gameCount -= 1
+                
+                
+                if (gameCount == 0 ){
+                    playSound2()
+                    
+                    // AppDelegateのmessageに押されたボタンのtagを代入
+                    self.delegate.result = playTime
+                    // NavigationControllerを使ったページの遷移
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }else{
+                    playSound()
+                }
+                setGoal()
+            }
+            
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
+/*
     
     @IBAction func TouchEvent(_ sender: UIPinchGestureRecognizer) {
    
@@ -203,7 +273,9 @@ class GameViewController: UIViewController{
         
         }
     }
-    
+ */
+ 
+ 
     func drowPoint(){
         
         ol1.path = UIBezierPath(ovalIn: CGRect(x:old_ap_x, y:old_ap_y, width:50, height:50)).cgPath
