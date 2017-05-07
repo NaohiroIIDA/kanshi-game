@@ -199,33 +199,30 @@ class GameViewController: UIViewController{
         
         
             drowPoint()
-            drowRect()
             
-            if checkGoal(){
-                gameCount -= 1
+            if (onoffFlug == true){
+            
+                drowRect()
+            
+                if checkGoal(){
+                    gameCount -= 1
                 
                 
-                if (gameCount == 0 ){
-                    playSound2()
+                    if (gameCount == 0 ){
+                        playSound2()
                     
-                    // AppDelegateのmessageに押されたボタンのtagを代入
-                    self.delegate.result = playTime
-                    // NavigationControllerを使ったページの遷移
-                    self.dismiss(animated: true, completion: nil)
+                        // AppDelegateのmessageに押されたボタンのtagを代入
+                        self.delegate.result = playTime
+                        // NavigationControllerを使ったページの遷移
+                        self.dismiss(animated: true, completion: nil)
                     
-                }else{
-                    playSound()
+                    }else{
+                        playSound()
+                    }
+                    setGoal()
                 }
-                setGoal()
             }
-            
-            
-            
         }
-        
-        
-        
-        
     }
     
     
