@@ -126,6 +126,8 @@ class GameViewController: UIViewController{
        GameView.isMultipleTouchEnabled = true
        // gameScreen.isUserInteractionEnabled = true
         
+        print( self.view.frame.size )
+        
         
     }
 
@@ -291,18 +293,22 @@ class GameViewController: UIViewController{
     }
     
     func setGoal(){
-        let gx   = Int(arc4random(lower: 50, upper: 300))
-        let gy   = Int(arc4random(lower: 200, upper: 400))
+        
+        
+        
+        
+        let gx   = Int(arc4random(lower: 50, upper: UInt32(self.view.frame.size.width - 100)))
+        let gy   = Int(arc4random(lower: 200, upper: UInt32(self.view.frame.size.height - 200)))
         
         let gq   = Double(arc4random(lower: 0, upper: 360))
         
         let sn = Double(gq) * 3.1415/180
         
-        ag_x = gx + Int(40 * cos(sn))
-        bg_x = gx - Int(40 * cos(sn))
+        ag_x = gx + Int(42 * cos(sn))
+        bg_x = gx - Int(42 * cos(sn))
         
-        ag_y = gy + Int(40 * sin(sn))
-        bg_y = gy - Int(40 * sin(sn))
+        ag_y = gy + Int(42 * sin(sn))
+        bg_y = gy - Int(42 * sin(sn))
         
     }
     

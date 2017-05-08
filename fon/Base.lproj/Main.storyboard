@@ -28,13 +28,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcK-sI-otT">
-                                <rect key="frame" x="99" y="67" width="176" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="resetRanking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="THu-Sz-NfS"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="myCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GFd-R2-gRb">
                                 <rect key="frame" x="66" y="202" width="240" height="288"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,6 +78,15 @@
                                 <state key="normal" title="スタート！"/>
                                 <connections>
                                     <segue destination="yND-gY-cwd" kind="presentation" id="dWm-ew-bTk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcK-sI-otT">
+                                <rect key="frame" x="245" y="193" width="61" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="リセット　"/>
+                                <connections>
+                                    <action selector="resetRanking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="THu-Sz-NfS"/>
                                 </connections>
                             </button>
                         </subviews>
