@@ -304,11 +304,11 @@ class GameViewController: UIViewController{
         
         let sn = Double(gq) * 3.1415/180
         
-        ag_x = gx + Int(42 * cos(sn))
-        bg_x = gx - Int(42 * cos(sn))
+        ag_x = gx + Int(55 * cos(sn))
+        bg_x = gx - Int(55 * cos(sn))
         
-        ag_y = gy + Int(42 * sin(sn))
-        bg_y = gy - Int(42 * sin(sn))
+        ag_y = gy + Int(55 * sin(sn))
+        bg_y = gy - Int(55 * sin(sn))
         
     }
     
